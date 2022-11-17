@@ -18,7 +18,7 @@
                             @endforeach
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="{{ url($post->image) }}" alt="..." /></figure>
+                        <figure class="mb-4"><img class="img-fluid rounded" src="{{ asset('storage/' . $post->thumbnail) }}" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4">{{ $post -> lead }}</p>
