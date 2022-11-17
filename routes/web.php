@@ -24,6 +24,7 @@ Route::redirect('/', '/posts');
 
 Route::get('admin/posts/create', [Postcontroller::class, 'create'])->middleware('admin');
 
+Route::post('admin/posts', [Postcontroller::class, 'store'])->middleware('admin');
 /*
 Route::get('/', function () {
     $posts = Post::paginate(5);
