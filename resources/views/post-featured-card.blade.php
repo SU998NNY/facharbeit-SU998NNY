@@ -48,4 +48,4 @@
             </footer>
         </div>
     </div>
-</article>
+</article> 
