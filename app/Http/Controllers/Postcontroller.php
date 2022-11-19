@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class Postcontroller extends Controller
 {
@@ -20,7 +21,14 @@ class Postcontroller extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(5);
+        
+        return view('posts.index', [
+            'posts' => Post::latest()->filter(
+                        request(['search', 'category', 'author'])
+                    )->paginate(18)->withQueryString()
+        ]);
+        
+        //$posts = Post::paginate(5);
 
     //dd($posts);
 
@@ -108,7 +116,7 @@ class Postcontroller extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     public function store()
